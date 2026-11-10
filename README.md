@@ -1,5 +1,6 @@
 # translates_overlay
-Windows overlay app that translates in-game
+Windows overlay app that translates in-game 
+
 
 ## Tech Stack
 
@@ -14,3 +15,6 @@ Windows overlay app that translates in-game
 
 
 Phase 1 (MVP): Hotkey → Select an area by dragging → Capture screenshot → OCR → Translate to Thai using Google Translate → Display the result in an overlay.
+
+This is a personal learning project.
+with Claude.
