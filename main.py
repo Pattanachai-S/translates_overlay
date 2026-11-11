@@ -38,7 +38,9 @@ class PipelineTask(QRunnable):
         try:
             prepared = preprocess_for_ocr(self.image, self.cfg.ocr_upscale)
             text = " ".join(self.ocr.read(prepared).split())  # รวมบรรทัดเป็นประโยคเดียว
+            print("ข้อความที่อ่านได้:", text)  # log ให้เห็นว่ามีอะไรอ่านได้บ้าง
             if not text:
+                print("Warning: ไม่พบข้อความในการแปล")
                 raise ValueError("อ่านข้อความไม่เจอ ลองเลือกพื้นที่ให้ครอบตัวหนังสือพอดีขึ้น")
             translated = self.translator.translate(text, self.cfg.src_lang, self.cfg.dst_lang)
             self.signals.done.emit(translated, self.anchor)
